@@ -11,9 +11,18 @@ export type Reason =
   /** The check key does not match the rest of the number. */
   | "key"
   /** A part of the number is outside its allowed range. */
-  | "range";
+  | "range"
+  /** No wilaya or commune has this name or code. */
+  | "unknown"
+  /** Several communes have this name; give the wilaya to choose. */
+  | "ambiguous";
 
-export type Invalid = { valid: false; reason: Reason };
+export type Invalid = {
+  valid: false;
+  reason: Reason;
+  /** For "unknown" and "ambiguous" places: the closest names, best first. */
+  suggestions?: string[];
+};
 
 /** Either the parsed parts of a valid value, or the reason it is invalid. */
 export type Result<T> = ({ valid: true } & T) | Invalid;

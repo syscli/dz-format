@@ -15,7 +15,9 @@ export type Reason =
   /** No wilaya or commune has this name or code. */
   | "unknown"
   /** Several communes have this name; give the wilaya to choose. */
-  | "ambiguous";
+  | "ambiguous"
+  /** Does not follow any known written layout. */
+  | "format";
 
 export type Invalid = {
   valid: false;

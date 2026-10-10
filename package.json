@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/syscli/dz-format.git"
   },
-  "homepage": "https://github.com/syscli/dz-format#readme",
+  "homepage": "https://syscli.github.io/dz-format/",
   "bugs": {
     "url": "https://github.com/syscli/dz-format/issues"
   },
@@ -51,7 +51,9 @@
     "build": "tsup",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.check.json",
-    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "build:site": "node scripts/site.mjs",
+    "serve": "node scripts/serve.mjs"
   },
   "keywords": [
     "algeria",
@@ -79,6 +81,7 @@
   "devDependencies": {
     "@syscli/algeria": "^0.1.0",
     "@types/node": "^20.19.43",
+    "esbuild": "^0.28.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.1.11"

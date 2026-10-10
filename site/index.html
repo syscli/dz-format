@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>dz-format</title>
+  <meta name="description" content="Check Algerian phone numbers, CCP, RIP and RIB keys, vehicle plates, wilayas and communes, right in your browser.">
+  <meta property="og:title" content="dz-format">
+  <meta property="og:description" content="Check Algerian phone numbers, RIP and RIB keys, plates, wilayas and communes.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="wordmark mono" href="./">dz-format</a>
+    <nav class="top__nav" aria-label="Links">
+      <a href="https://github.com/syscli/dz-format#readme">Docs</a>
+      <a href="https://github.com/syscli/dz-format/blob/main/sources/README.md">Sources</a>
+      <a href="https://www.npmjs.com/package/@syscli/dz-format">npm</a>
+      <a href="https://github.com/syscli/dz-format">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="label">Algerian formats, checked in your browser</p>
+      <h1>Is it well formed?</h1>
+      <p class="lede">Type a phone number, a RIP, a plate or a commune. You get its parts, or the reason it is wrong. Nothing you type leaves this page.</p>
+    </section>
+
+    <section class="tool" aria-label="Playground">
+      <div class="kinds" role="tablist" aria-label="Format"></div>
+      <div class="field">
+        <label class="sr-only" for="value">Value</label>
+        <input id="value" type="text" autocomplete="off" spellcheck="false">
+        <label class="sr-only" for="extra">Extra</label>
+        <input id="extra" type="text" autocomplete="off" spellcheck="false" hidden>
+      </div>
+      <div class="examples"><span class="label">Try</span><span id="examples"></span></div>
+
+      <div class="out" aria-live="polite">
+        <div class="verdict" id="verdict"></div>
+        <dl class="parts" id="parts"></dl>
+        <div class="code">
+          <p class="label">Code</p>
+          <pre class="mono" id="code"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="install">
+      <p class="label">Install</p>
+      <pre class="mono">npm install @syscli/dz-format</pre>
+      <p>Wilaya and commune checks also need <a href="https://github.com/syscli/algeria">@syscli/algeria</a>. Each rule and its source is listed in <a href="https://github.com/syscli/dz-format/blob/main/sources/README.md">sources/README.md</a>. Well formed does not mean that an account or a line exists.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>MIT license. <a href="https://github.com/syscli/dz-format">github.com/syscli/dz-format</a></p>
+    <p>By <a href="https://github.com/syscli">syscli</a></p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

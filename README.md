@@ -1,5 +1,7 @@
 # dz-format
 
+[![npm](https://img.shields.io/npm/v/@syscli/dz-format)](https://www.npmjs.com/package/@syscli/dz-format) [![CI](https://github.com/syscli/dz-format/actions/workflows/ci.yml/badge.svg)](https://github.com/syscli/dz-format/actions/workflows/ci.yml)
+
 Validate and parse Algerian formats: phone numbers, CCP accounts, RIP and RIB
 keys, vehicle plates, postal codes, NIN, NIF, NIS, RC, wilayas and communes.
 
@@ -100,6 +102,32 @@ no account, and a mobile number may have moved to another operator.
 Each rule and where it comes from is in [sources/README.md](sources/README.md).
 The RIB key rule is checked against accounts published by Algerie Poste, BEA
 and BNA; it is not the French RIB key that many tools use.
+
+## Python
+
+The same rules, with the same answers (checked in CI against this package on
+thousands of calls). Results are dicts with snake_case keys.
+
+```sh
+pip install dz-format
+pip install "dz-format[place]"   # wilaya and commune names
+```
+
+```python
+from dz_format import phone, rip_of
+phone("0661 23 45 67")["operator"]   # "Mobilis"
+rip_of("200")                        # "00799999000000020091"
+```
+
+The source is in [python/](python/).
+
+## Related projects
+
+| project | what | get it |
+|---|---|---|
+| [algeria](https://github.com/syscli/algeria) | the 69 wilayas and 1541 communes, search, GPS lookups | npm `@syscli/algeria`, PyPI `syscli-algeria`, site [AlgerieGeo](https://syscli.github.io/algeria/) |
+| [dz-format](https://github.com/syscli/dz-format) | checks for phone numbers, RIP and RIB keys, plates, NIF, RC and more | npm `@syscli/dz-format`, PyPI `dz-format`, [playground](https://syscli.github.io/dz-format/) |
+| [algeria-mcp](https://github.com/syscli/algeria-mcp) | both of the above for AI assistants | npm `@syscli/algeria-mcp`, MCP Registry `io.github.syscli/algeria-mcp` |
 
 ## Releases and security
 

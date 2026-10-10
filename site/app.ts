@@ -1,4 +1,4 @@
-import { ccp, formatPhone, formatPlate, formatRib, phone, plate, rib, rip, ripOf, type Reason, type Result } from "../src/index.js";
+import { ccp, formatPhone, formatPlate, formatRib, nif, nin, nis, phone, plate, postalCode, rc, rib, rip, ripOf, type Reason, type Result } from "../src/index.js";
 
 type Any = Result<Record<string, unknown>>;
 type Run = (value: string, extra: string) => { result: Any; call: string; more?: [string, string][] } | Promise<{ result: Any; call: string; more?: [string, string][] }>;
@@ -74,6 +74,41 @@ const KINDS: Kind[] = [
     },
   },
   {
+    id: "postal",
+    label: "Postal code",
+    placeholder: "16024",
+    examples: ["16024", "55002", "28001", "68001"],
+    run: v => ({ result: postalCode(v), call: `postalCode(${q(v)})` }),
+  },
+  {
+    id: "rc",
+    label: "RC",
+    placeholder: "16/00-0013767 B 00",
+    examples: ["16/00-0013767 B 00", "01B 0015609-16/00", "22B1242074", "16-0013767"],
+    run: v => ({ result: rc(v), call: `rc(${q(v)})` }),
+  },
+  {
+    id: "nif",
+    label: "NIF",
+    placeholder: "15 or 20 digits",
+    examples: ["000216001808337", "00021600180833716001", "0002160018083"],
+    run: v => ({ result: nif(v), call: `nif(${q(v)})` }),
+  },
+  {
+    id: "nis",
+    label: "NIS",
+    placeholder: "15 digits",
+    examples: ["000216290656936"],
+    run: v => ({ result: nis(v), call: `nis(${q(v)})` }),
+  },
+  {
+    id: "nin",
+    label: "NIN",
+    placeholder: "18 digits",
+    examples: ["123456789012345678", "12345678901234567"],
+    run: v => ({ result: nin(v), call: `nin(${q(v)})` }),
+  },
+  {
     id: "commune",
     label: "Commune",
     placeholder: "Name or ONS code, in French or Arabic",
@@ -106,6 +141,7 @@ const REASONS: Record<Reason, string> = {
   range: "A part of the value is out of range.",
   unknown: "Not found.",
   ambiguous: "Several communes have this name. Pick one, or give the wilaya.",
+  format: "Does not follow any known written layout.",
 };
 
 const LABELS: Record<string, string> = {
@@ -128,6 +164,12 @@ const LABELS: Record<string, string> = {
   code: "code",
   nameFr: "name (fr)",
   nameAr: "name (ar)",
+  office: "office",
+  base: "base NIF",
+  establishment: "establishment",
+  number: "number",
+  letter: "letter",
+  canonical: "canonical",
 };
 
 const tabs = $<HTMLDivElement>(".kinds");

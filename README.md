@@ -3,6 +3,8 @@
 Validate and parse Algerian formats: phone numbers, CCP accounts, RIP and RIB
 keys, vehicle plates, wilayas and communes.
 
+Try it in your browser: https://syscli.github.io/dz-format/
+
 ```sh
 npm install @syscli/dz-format
 ```

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dz-format"
+version = "0.1.0"
+description = "Validate and parse Algerian formats: phone numbers, CCP, RIP and RIB keys, plates, postal codes, NIN, NIF, NIS, RC, wilayas and communes."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sysserv", email = "me@sysserv.eu.org" }]
+requires-python = ">=3.9"
+keywords = ["algeria", "algerie", "dz", "validation", "phone", "rib", "rip", "ccp", "nif"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://syscli.github.io/dz-format/"
+Source = "https://github.com/syscli/dz-format/tree/main/python"
+Sources = "https://github.com/syscli/dz-format/blob/main/sources/README.md"
+
+[project.optional-dependencies]
+place = ["syscli-algeria>=0.1"]
+test = ["pytest>=8", "syscli-algeria>=0.1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dz_format"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

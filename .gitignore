@@ -9,3 +9,7 @@ coverage/
 
 *.tgz
 public/
+python/tests/parity.json
+python/dist/
+__pycache__/
+*.egg-info/

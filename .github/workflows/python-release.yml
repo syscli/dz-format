@@ -30,7 +30,7 @@ jobs:
             echo "tag $GITHUB_REF_NAME does not match pyproject.toml version $version"
             exit 1
           fi
-      - run: pip install build pytest "syscli-algeria @ git+https://github.com/syscli/algeria@main#subdirectory=python"
+      - run: pip install build pytest "syscli-algeria>=0.1"
       - run: pytest python/tests
         env:
           PYTHONPATH: python/src

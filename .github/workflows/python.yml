@@ -28,7 +28,6 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node scripts/parity.mjs
-      # syscli-algeria comes from its repository until it is on PyPI.
-      - run: pip install "syscli-algeria @ git+https://github.com/syscli/algeria@main#subdirectory=python" pytest
+      - run: pip install "syscli-algeria>=0.1" pytest
       - run: pip install ./python
       - run: pytest python/tests

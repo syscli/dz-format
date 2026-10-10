@@ -16,4 +16,7 @@ First release.
 - `plate`, `formatPlate`: vehicle plates of the normal series, wilaya codes
   up to 69.
 - `wilayaCode`: wilaya codes under the 48, 58 and 69 maps.
+- `@syscli/dz-format/place`: `wilaya` and `commune` check names and codes
+  against @syscli/algeria (optional peer dependency), with suggestions for
+  misspellings and shared names.
 - Arabic-Indic digits are accepted everywhere.

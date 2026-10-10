@@ -1,7 +1,7 @@
 # dz-format
 
 Validate and parse Algerian formats: phone numbers, CCP accounts, RIP and RIB
-keys, vehicle plates, wilayas and communes.
+keys, vehicle plates, postal codes, NIN, NIF, NIS, RC, wilayas and communes.
 
 Try it in your browser: https://syscli.github.io/dz-format/
 
@@ -44,6 +44,7 @@ user what is wrong.
 | range | a part is out of range, such as wilaya 70 |
 | unknown | no wilaya or commune by that name or code |
 | ambiguous | several communes have that name; give the wilaya |
+| format | does not follow a known written layout (RC) |
 
 ## Wilayas and communes
 
@@ -79,6 +80,10 @@ Jelfa, Beni and Bni) count as spellings, not typos.
 | `rip`, `ripOf` | RIP of a CCP account, and building it from the account |
 | `rib`, `ribKey`, `formatRib` | 20-digit RIB of any bank |
 | `plate`, `formatPlate` | vehicle plate, normal series, wilaya codes up to 69 |
+| `postalCode` | postal code, with its wilaya and post office |
+| `nin` | national identification number, 18 digits (no public key) |
+| `nif`, `nis` | tax and statistical numbers, length only (no public key) |
+| `rc` | registre du commerce number, in its usual written layouts |
 | `wilayaCode` | wilaya code under the 48, 58 or 69 map |
 | `place`: `wilaya`, `commune` | wilaya and commune names or codes, with suggestions |
 | `asciiDigits` | converts Arabic-Indic digits |
@@ -86,7 +91,8 @@ Jelfa, Beni and Bni) count as spellings, not typos.
 ## What valid means
 
 Valid means well formed: the right length, the right prefix, a matching key.
-It does not mean the number exists. A RIP with a correct key may belong to
+It does not mean the number exists. NIN, NIF, NIS and RC have no published
+check key, so only their layout is checked. A RIP with a correct key may belong to
 no account, and a mobile number may have moved to another operator.
 
 ## Sources

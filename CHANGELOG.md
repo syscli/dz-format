@@ -3,7 +3,14 @@
 This project follows semantic versioning. Before 1.0, a minor version may
 change the API; a patch version never does.
 
-## 0.1.0 - unreleased
+## 0.2.0 - unreleased
+
+- `postalCode`, `nin`, `nif`, `nis`, `rc`: layout checks for postal codes and
+  the national, tax, statistical and trade register numbers. None has a
+  published check key; see sources/README.md for what each rests on.
+- New reason `format` for values that follow no known layout.
+
+## 0.1.0 - 2026-10-10
 
 First release.
 

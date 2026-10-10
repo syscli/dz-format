@@ -68,6 +68,12 @@ and BNA; it is not the French RIB key that many tools use.
 For wilaya and commune names, see
 [@syscli/algeria](https://github.com/syscli/algeria).
 
+## Releases and security
+
+Versions are listed in [CHANGELOG.md](CHANGELOG.md). Releases are published
+from GitHub Actions with npm provenance; `npm audit signatures` checks them.
+To report a security problem, see [SECURITY.md](SECURITY.md).
+
 ## License
 
 MIT
